@@ -8,4 +8,6 @@
     <string name="follower_list_title">%s\'s Followers</string>
     <string name="fragment_login_edittext_hint">Input Login Name Here</string>
     <string name="fragment_login_button_text">LOGIN</string>
+    <string name="fragment_login_connection_error">No Internet Connection</string>
+    <string name="fragment_login_user_error">User Not Found</string>
 </resources>

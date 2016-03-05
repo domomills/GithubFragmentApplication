@@ -64,7 +64,7 @@ public class LoginFragment extends Fragment implements LoginAsyncTask.OnUserNotF
         NetworkInfo networkInfo = connectivityManager.getActiveNetworkInfo();
         mButton.setEnabled(false);
         if(networkInfo == null || !networkInfo.isConnected()) {
-            Toast.makeText(getContext(), "No Internet Connection", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getContext(), R.string.fragment_login_connection_error, Toast.LENGTH_SHORT).show();
             mButton.setEnabled(true);
         } else {
             mLoginName = mEditText.getText().toString();
@@ -86,7 +86,7 @@ public class LoginFragment extends Fragment implements LoginAsyncTask.OnUserNotF
 
     @Override
     public void onUserNotFound() {
-        Toast.makeText(getContext(), "User Not Found", Toast.LENGTH_SHORT).show();
+        Toast.makeText(getContext(), R.string.fragment_login_user_error, Toast.LENGTH_SHORT).show();
         mButton.setEnabled(true);
         mProgressBar.setVisibility(View.INVISIBLE);
     }
