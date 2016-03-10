@@ -22,12 +22,10 @@ import edu.lclark.githubfragmentapplication.models.GithubUser;
 /**
  * Created by ntille on 2/25/16.
  */
-public class UserFragment extends Fragment {
+public class TabUserFragment extends Fragment {
 
     public static final String ARG_USER = "UserFragment.User";
     private GithubUser mUser;
-    private UserListener mUserListener;
-    private TabbedUserListener mTabbedUserListener;
 
     @Bind(R.id.fragment_user_imageview)
     ImageView mImageView;
@@ -35,16 +33,10 @@ public class UserFragment extends Fragment {
     TextView mNameTextView;
 
 
-    public interface UserListener {
-        void onUserFollowerButtonClicked(GithubUser user);
-    }
 
-    public interface TabbedUserListener {
-        void onTabbedUserFollowerButtonClicked(GithubUser user);
-    }
 
-    public static UserFragment newInstance(GithubUser user) {
-        UserFragment fragment = new UserFragment();
+    public static TabUserFragment newInstance(GithubUser user) {
+        TabUserFragment fragment = new TabUserFragment();
         Bundle args = new Bundle();
         args.putParcelable(ARG_USER, user);
         fragment.setArguments(args);
@@ -67,22 +59,10 @@ public class UserFragment extends Fragment {
         mNameTextView.setText(mUser.getLogin());
 
 
-
-        mUserListener = (MainActivity) getActivity();
-        mTabbedUserListener = (MainActivity) getActivity();
-
-
-
         return rootView;
     }
 
 
 
-    @OnClick(R.id.fragment_user_user_button)
-    public void onFollowerButtonClick() {
-        mUserListener.onUserFollowerButtonClicked(mUser);
-    }
 
-    @OnClick(R.id.fragment_user_tabbed_follower_button)
-    public void onTabbedFollowerButtonClick() {mTabbedUserListener.onTabbedUserFollowerButtonClicked(mUser); }
 }

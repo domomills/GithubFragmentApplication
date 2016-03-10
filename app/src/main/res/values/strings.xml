@@ -10,4 +10,5 @@
     <string name="fragment_login_button_text">LOGIN</string>
     <string name="fragment_login_connection_error">No Internet Connection</string>
     <string name="fragment_login_user_error">User Not Found</string>
+    <string name="fragment_user_tabbed_follower_button">Tabbed Followers</string>
 </resources>

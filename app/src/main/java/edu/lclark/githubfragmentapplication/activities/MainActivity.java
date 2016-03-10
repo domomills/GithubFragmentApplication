@@ -1,8 +1,10 @@
 package edu.lclark.githubfragmentapplication.activities;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.design.widget.TabLayout;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
@@ -12,16 +14,19 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.FrameLayout;
 
+import java.util.ArrayList;
+
 import butterknife.Bind;
 import butterknife.ButterKnife;
 import edu.lclark.githubfragmentapplication.LoginAsyncTask;
+import edu.lclark.githubfragmentapplication.NetworkAsyncTask;
 import edu.lclark.githubfragmentapplication.R;
 import edu.lclark.githubfragmentapplication.fragments.LoginFragment;
 import edu.lclark.githubfragmentapplication.fragments.UserFragment;
 import edu.lclark.githubfragmentapplication.fragments.MainActivityFragment;
 import edu.lclark.githubfragmentapplication.models.GithubUser;
 
-public class MainActivity extends AppCompatActivity implements MainActivityFragment.FollowerSelectedListener, UserFragment.UserListener, LoginAsyncTask.OnUserFoundListener {
+public class MainActivity extends AppCompatActivity implements MainActivityFragment.FollowerSelectedListener, UserFragment.UserListener, LoginAsyncTask.OnUserFoundListener, UserFragment.TabbedUserListener{
 
     @Bind(R.id.activity_main_framelayout)
     FrameLayout mFrameLayout;
@@ -104,5 +109,13 @@ public class MainActivity extends AppCompatActivity implements MainActivityFragm
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
         transaction.replace(R.id.activity_main_framelayout, UserFragment.newInstance(user));
         transaction.commit();
+    }
+
+
+    @Override
+    public void onTabbedUserFollowerButtonClicked(GithubUser user) {
+        Intent intent = new Intent(this, TabActivity.class);
+        intent.putExtra(TabActivity.ARG_TAB_USER, user);
+        startActivity(intent);
     }
 }
