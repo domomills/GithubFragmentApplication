@@ -9,6 +9,7 @@ import android.util.Log;
 
 import java.util.ArrayList;
 
+import edu.lclark.githubfragmentapplication.activities.TabActivity;
 import edu.lclark.githubfragmentapplication.fragments.TabUserFragment;
 import edu.lclark.githubfragmentapplication.fragments.UserFragment;
 import edu.lclark.githubfragmentapplication.models.GithubUser;
@@ -46,5 +47,6 @@ public class FollowerFragmentStatePagerAdapter extends FragmentStatePagerAdapter
         Log.d("TAG", "setFollowers() called");
         mFollowers = followers;
         notifyDataSetChanged();
+
     }
 }

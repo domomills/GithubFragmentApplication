@@ -9,6 +9,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.support.v7.widget.Toolbar;
+import android.widget.Button;
 
 import java.util.ArrayList;
 
@@ -47,11 +48,11 @@ public class TabActivity extends AppCompatActivity implements NetworkAsyncTask.G
         mUser = getIntent().getParcelableExtra(ARG_TAB_USER);
         mFragmentStatePagerAdapter = new FollowerFragmentStatePagerAdapter(getSupportFragmentManager(), mFollowers);
         mViewPager.setAdapter(mFragmentStatePagerAdapter);
-        mTabLayout.setupWithViewPager(mViewPager);
         mTabLayout.setTabMode(TabLayout.MODE_SCROLLABLE);
 
-        setSupportActionBar(mToolbar);
         mToolbar.setTitle(mUser.getLogin());
+        setSupportActionBar(mToolbar);
+
 
     }
 
@@ -69,5 +70,6 @@ public class TabActivity extends AppCompatActivity implements NetworkAsyncTask.G
         Log.d("TAG", "onGithubFollowersRetrieved called");
         mFollowers = followers;
         mFragmentStatePagerAdapter.setFollowers(followers);
+        mTabLayout.setupWithViewPager(mViewPager);
     }
 }

@@ -89,6 +89,7 @@ public class NetworkAsyncTask extends AsyncTask<String, Integer, ArrayList<Githu
     protected void onPostExecute(ArrayList<GithubUser> githubUsers) {
         super.onPostExecute(githubUsers);
 
+        Log.d("AsyncTask", "onPostExecute called");
         mListener.onGithubFollowersRetrieved(githubUsers);
     }
 }

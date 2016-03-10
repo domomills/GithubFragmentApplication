@@ -52,12 +52,16 @@ public class TabUserFragment extends Fragment {
 
         mUser = getArguments().getParcelable(ARG_USER);
         assert mUser != null;
-        getActivity().setTitle(mUser.getLogin());
+       // getActivity().setTitle(mUser.getLogin());
 
         Picasso.with(getContext()).load(mUser.getAvatar_url()).fit().centerInside().into(mImageView);
 
         mNameTextView.setText(mUser.getLogin());
 
+        Button userButton = (Button) rootView.findViewById(R.id.fragment_user_user_button);
+        userButton.setVisibility(View.INVISIBLE);
+        Button tabButton = (Button) rootView.findViewById(R.id.fragment_user_tabbed_follower_button);
+        tabButton.setVisibility(View.INVISIBLE);
 
         return rootView;
     }
