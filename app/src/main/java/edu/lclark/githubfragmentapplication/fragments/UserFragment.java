@@ -70,7 +70,7 @@ public class UserFragment extends Fragment {
 
         mUserListener = (MainActivity) getActivity();
         mTabbedUserListener = (MainActivity) getActivity();
-
+        //These should be cast to a GithubListener (the interface itself), that way you can use the UserFragment in any activity and it wont be mad. 
 
 
         return rootView;
